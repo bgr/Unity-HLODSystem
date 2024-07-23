@@ -99,6 +99,12 @@ namespace Unity.HLODSystem
 
             void MakeTexture(TerrainLayer layer, Texture2D texture, Vector4 min, Vector4 max, DisposableList<WorkingTexture> results)
             {
+                if (texture == null)
+                {
+                    Debug.LogError($"Texture for layer {layer.name} is null.");
+                    return;
+                }
+
                 bool linear = !GraphicsFormatUtility.IsSRGBFormat(texture.graphicsFormat);
 
                 var offset = layer.tileOffset;
@@ -1226,7 +1232,7 @@ namespace Unity.HLODSystem
                                 //controller
                                 IStreamingBuilder builder =
                                     (IStreamingBuilder)Activator.CreateInstance(m_hlod.StreamingType,
-                                        new object[] { m_hlod, m_hlod.StreamingOptions });
+                                        new object[] { m_hlod, 0, m_hlod.StreamingOptions });
 
                                 builder.Build(rootNode, buildInfos, m_hlod.gameObject, m_hlod.CullDistance,
                                     m_hlod.LODDistance, true, false,
