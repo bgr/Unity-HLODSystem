@@ -10,12 +10,12 @@ namespace Unity.HLODSystem.SpaceManager
     {
         public static bool IsPartOf(this Bounds bounds, Bounds target)
         {
-            return (double) bounds.min.x >= (double) target.min.x &&
-                   (double) bounds.max.x <= (double) target.max.x &&
-                   (double) bounds.min.y >= (double) target.min.y &&
-                   (double) bounds.max.y <= (double) target.max.y &&
-                   (double) bounds.min.z >= (double) target.min.z &&
-                   (double) bounds.max.z <= (double) target.max.z;
+            return (double) bounds.center.x >= (double) target.min.x &&
+                   (double) bounds.center.x <= (double) target.max.x &&
+                   (double) bounds.center.y >= (double) target.min.y &&
+                   (double) bounds.center.y <= (double) target.max.y &&
+                   (double) bounds.center.z >= (double) target.min.z &&
+                   (double) bounds.center.z <= (double) target.max.z;
         }
     }
     public class QuadTreeSpaceSplitter : ISpaceSplitter
