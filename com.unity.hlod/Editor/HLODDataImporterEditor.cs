@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.AssetImporters;
+using UnityEditor.Experimental.AssetImporters;
 using System.IO;
 
 namespace Unity.HLODSystem

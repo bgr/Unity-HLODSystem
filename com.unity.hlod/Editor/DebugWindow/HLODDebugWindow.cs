@@ -26,7 +26,8 @@ namespace Unity.HLODSystem.DebugWindow
         private List<HLODItemData> m_hlodItemDatas = new List<HLODItemData>();
         private HierarchyItem m_selectedItem;
 
-        private RadioButtonGroup m_drawModeUI;
+        // private RadioButtonGroup m_drawModeUI;
+
 
         [SerializeField]
         private bool m_drawSelected = true;
@@ -66,14 +67,14 @@ namespace Unity.HLODSystem.DebugWindow
             var highlightRenderedUI = root.Q<Toggle>("HighlightRendered");
             highlightRenderedUI.Bind(serializedObject);
             
-            m_drawModeUI = root.Q<RadioButtonGroup>("DrawMode");
-            m_drawModeUI.choices = new[]
-            {
-                DrawMode.None.ToString(),
-                DrawMode.RenderOnly.ToString(),
-                DrawMode.All.ToString(),
-            };
-            m_drawModeUI.Bind(serializedObject);
+            // m_drawModeUI = root.Q<RadioButtonGroup>("DrawMode");
+            // m_drawModeUI.choices = new[]
+            // {
+            //     DrawMode.None.ToString(),
+            //     DrawMode.RenderOnly.ToString(),
+            //     DrawMode.All.ToString(),
+            // };
+            // m_drawModeUI.Bind(serializedObject);
             
             EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
             SceneView.duringSceneGui += SceneViewOnDuringSceneGui;
@@ -107,7 +108,8 @@ namespace Unity.HLODSystem.DebugWindow
 
             foreach (var controller in HLODManager.Instance.ActiveControllers)
             {
-                var data = new HLODItemData();
+                //var data = new HLODItemData();
+                var data = CreateInstance<HLODItemData>();
                 data.Initialize(controller);
                 m_hlodItemDatas.Add(data);
             }

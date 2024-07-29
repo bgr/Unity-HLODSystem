@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEditor.Build;
-using UnityEditor.AssetImporters;
+using UnityEditor.Experimental.AssetImporters;
 using UnityEngine;
 using TextureCompressionQuality = UnityEditor.TextureCompressionQuality;
 using UnityEditor.Experimental;
@@ -228,7 +228,7 @@ namespace Unity.HLODSystem
         static void UpdateBuildTaget(BuildTarget target)
         {
             var hash = Hash128.Compute(target.ToString());
-            AssetDatabase.RegisterCustomDependency("HLODSystemPlatform", hash);
+            AssetDatabaseExperimental.RegisterCustomDependency("HLODSystemPlatform", hash);
         }
         public void OnActiveBuildTargetChanged(BuildTarget previousTarget, BuildTarget newTarget)
         {

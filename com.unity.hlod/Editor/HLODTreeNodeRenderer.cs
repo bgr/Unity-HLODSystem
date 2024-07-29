@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.TerrainUtils;
 
 namespace Unity.HLODSystem
 {
@@ -50,20 +49,20 @@ namespace Unity.HLODSystem
             
             Handles.color = color;
 
-            Handles.DrawLine(m_allocatedVertices[0], m_allocatedVertices[1], width);
-            Handles.DrawLine(m_allocatedVertices[1], m_allocatedVertices[2], width);
-            Handles.DrawLine(m_allocatedVertices[2], m_allocatedVertices[3], width);
-            Handles.DrawLine(m_allocatedVertices[3], m_allocatedVertices[0], width);
+            Handles.DrawLine(m_allocatedVertices[0], m_allocatedVertices[1]);
+            Handles.DrawLine(m_allocatedVertices[1], m_allocatedVertices[2]);
+            Handles.DrawLine(m_allocatedVertices[2], m_allocatedVertices[3]);
+            Handles.DrawLine(m_allocatedVertices[3], m_allocatedVertices[0]);
 
-            Handles.DrawLine(m_allocatedVertices[0], m_allocatedVertices[4], width);
-            Handles.DrawLine(m_allocatedVertices[1], m_allocatedVertices[5], width);
-            Handles.DrawLine(m_allocatedVertices[2], m_allocatedVertices[6], width);
-            Handles.DrawLine(m_allocatedVertices[3], m_allocatedVertices[7], width);
+            Handles.DrawLine(m_allocatedVertices[0], m_allocatedVertices[4]);
+            Handles.DrawLine(m_allocatedVertices[1], m_allocatedVertices[5]);
+            Handles.DrawLine(m_allocatedVertices[2], m_allocatedVertices[6]);
+            Handles.DrawLine(m_allocatedVertices[3], m_allocatedVertices[7]);
 
-            Handles.DrawLine(m_allocatedVertices[4], m_allocatedVertices[5], width);
-            Handles.DrawLine(m_allocatedVertices[5], m_allocatedVertices[6], width);
-            Handles.DrawLine(m_allocatedVertices[6], m_allocatedVertices[7], width);
-            Handles.DrawLine(m_allocatedVertices[7], m_allocatedVertices[4], width);
+            Handles.DrawLine(m_allocatedVertices[4], m_allocatedVertices[5]);
+            Handles.DrawLine(m_allocatedVertices[5], m_allocatedVertices[6]);
+            Handles.DrawLine(m_allocatedVertices[6], m_allocatedVertices[7]);
+            Handles.DrawLine(m_allocatedVertices[7], m_allocatedVertices[4]);
         }
 
         #endregion

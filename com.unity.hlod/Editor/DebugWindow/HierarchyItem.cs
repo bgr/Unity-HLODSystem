@@ -46,9 +46,9 @@ namespace Unity.HLODSystem.DebugWindow
             
             m_foldoutToggle = m_root.Q<Toggle>("Foldout");
             m_foldoutToggle.RegisterValueChangedCallback(FoldoutValueChanged);
-            m_foldoutToggle.RegisterCallback<ClickEvent>(FoldoutClick);
+            m_foldoutToggle.RegisterCallback<MouseUpEvent>(FoldoutClick);
             
-            RegisterCallback<ClickEvent>(ItemClick);
+            RegisterCallback<MouseUpEvent>(ItemClick);
             
             EditorApplication.update += Update;
         }
@@ -60,13 +60,13 @@ namespace Unity.HLODSystem.DebugWindow
             if (m_foldoutToggle != null)
             {
                 m_foldoutToggle.UnregisterValueChangedCallback(FoldoutValueChanged);
-                m_foldoutToggle.UnregisterCallback<ClickEvent>(FoldoutClick);
+                m_foldoutToggle.UnregisterCallback<MouseUpEvent>(FoldoutClick);
             }
             EditorApplication.update -= Update;
         }
         
 
-        private void ItemClick(ClickEvent evt)
+        private void ItemClick(MouseUpEvent evt)
         {
             m_window.SetSelectItem(this);
         }
@@ -125,7 +125,7 @@ namespace Unity.HLODSystem.DebugWindow
         {
             RemoveFromClassList("unity-collection-view__item--selected");
         }
-        private void FoldoutClick(ClickEvent evt)
+        private void FoldoutClick(MouseUpEvent evt)
         {
             m_hlodItem.UpdateList();
         }

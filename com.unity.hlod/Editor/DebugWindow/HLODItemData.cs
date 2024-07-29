@@ -46,13 +46,19 @@ namespace Unity.HLODSystem.DebugWindow
             {
                 var node = treeNodeTravelStack.Pop();
                 var label = labelStack.Pop();
-                m_hierarchyItemDatas.Add(new HierarchyItemData()
-                {
-                    Index = m_hierarchyItemDatas.Count,
-                    TreeNode = node,
-                    Label = label,
-                    IsOpen = true,
-                });
+                // m_hierarchyItemDatas.Add(new HierarchyItemData()
+                // {
+                //     Index = m_hierarchyItemDatas.Count,
+                //     TreeNode = node,
+                //     Label = label,
+                //     IsOpen = true,
+                // });
+                var inst = CreateInstance<HierarchyItemData>();
+                inst.Index = m_hierarchyItemDatas.Count;
+                inst.TreeNode = node;
+                inst.Label = label;
+                inst.IsOpen = true;
+                m_hierarchyItemDatas.Add(inst);
                 m_nodes.Add(node);
                 
                 for (int i = node.GetChildTreeNodeCount() - 1; i >= 0; --i)

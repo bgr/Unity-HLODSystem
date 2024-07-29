@@ -17,7 +17,8 @@ namespace Unity.HLODSystem.Utils
             dynamic parameters = wc.Parameters;
 
             wc.Type = collider.GetType().Name;
-            wc.Position = matrix.GetPosition();
+            // wc.Position = matrix.GetPosition();  // GetPosition is not available in this Unity version, replaced with line below
+            wc.Position = new Vector3(matrix.m03, matrix.m13, matrix.m23);
             wc.Rotation = matrix.rotation;
             wc.Scale = matrix.lossyScale;
 
